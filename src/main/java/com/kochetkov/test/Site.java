@@ -1,9 +1,13 @@
 package com.kochetkov.test;
 
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -12,6 +16,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Site {
+    private final Logger logger = LoggerFactory.getLogger(Site.class);
+
     private String link = "";
     private TreeMap<String, Integer> words = new TreeMap<>();
 
@@ -34,8 +40,9 @@ public class Site {
                 }
             }
             words.remove("");
-        } catch (IOException exception) {
+        } catch (IOException |IllegalArgumentException e) {
             System.out.println("Невозможно открыть ссылку");
+            logger.error("unable to open link {}", link, e);
         }
     }
 
@@ -52,7 +59,7 @@ public class Site {
 
                preparedStatement.execute();
            } catch (SQLException e) {
-               e.printStackTrace();
+               logger.error("unable insert to database", e);
            }
         }
     }
