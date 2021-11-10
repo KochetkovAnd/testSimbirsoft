@@ -1,4 +1,4 @@
-package com.kochetkov;
+package com.kochetkov.com;
 
 import java.util.Map;
 import java.util.Scanner;
