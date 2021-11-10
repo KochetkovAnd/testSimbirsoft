@@ -1,4 +1,4 @@
-package com.kochetkov.com;
+package com.kochetkov.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

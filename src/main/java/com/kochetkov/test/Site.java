@@ -1,4 +1,4 @@
-package com.kochetkov.com;
+package com.kochetkov.test;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
