@@ -19,7 +19,7 @@ public class Main {
         String answer = scanner.next();
         Site site = new Site(answer);
 
-        site.saveWordsToDB();
+        //site.saveWordsToDB();
 
         TreeMap<String, Integer> map = site.getWords();
         for(Map.Entry<String, Integer> item : map.entrySet()){
